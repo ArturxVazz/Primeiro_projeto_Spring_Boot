@@ -21,8 +21,10 @@ public class ExemploController {
     @GetMapping("/gerarJson")
     public String gerarJson(
             @RequestParam("nome") String nome,
-            @RequestParam ("email") String email) {
-        Dados dados = new Dados(nome, email, LocalDateTime.now());
+            @RequestParam ("email") String email,
+            @RequestParam ("time") String time)
+    {
+        Dados dados = new Dados(nome, email, LocalDateTime.now(), time);
         return geradorDeSaida.gerarSaida(dados);
 
     }
